@@ -8,10 +8,13 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.5",
     "express": "^4.14.0",
     "express-load": "^1.1.15",
-    "method-override": "^2.3.7"
+    "method-override": "^2.3.7",
+    "moment-timezone": "^0.5.10",
+    "serve-favicon": "^2.3.2"
   }
 }
