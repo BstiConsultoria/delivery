@@ -1,33 +1,42 @@
 angular.module('delivery').controller('ContatosCtrl',
-	function($scope, $resource) {
+	function($scope, ContatoService) {
 		$scope.contatos = [];
 		$scope.total = 0;
 		$scope.filtro = '';
+		$scope.mensagem = {texto: ''};
 
-		$scope.init = function() {
-			buscaContatos();
-		};
-		
+		//var contatosAPI = $resource('/api/contatos/:id');
+
 		$scope.incrementa = function() {
 			$scope.total++;
 		};
+	
+		function buscaContatos() {
+			ContatoService.query(
+				function(contatos) {
+					$scope.contatos = contatos;
+					$scope.mensagem = {};
+				},
+				function(erro) {
+					console.log(erro);
+					$scope.mensagem = {
+						texto: 'Não foi possível obter a lista'
+					};
+				}
+			);
+		}
+		buscaContatos();		
 
 		$scope.remove = function(contato) {
-			console.log(contato);
+			console.log('Removendo o contato: ' + contato._id);
+			ContatoService.delete({id: contato._id}, buscaContatos, 
+				function(erro) {
+					$scope.mensagem = {
+						texto: 'Não foi possível remover o contato'
+					};
+					console.log(erro);
+				}
+			);
 		};
-
-		var _response = $resource('/api/contatos');
-		
-		function buscaContatos() {
-			var _promise = _response.query().$promise;
-		
-			_promise
-				.then(function(contatos) {
-					$scope.contatos = contatos;
-			})
-			.catch(function(erro) {
-				console.log(erro);
-			});
-		};
-		$scope.init();
+	
 });
