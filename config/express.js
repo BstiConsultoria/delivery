@@ -19,6 +19,12 @@ module.exports = function () {
 	app.set('port', 3000);
 	//app.use(express.static(path.resolve('public'), { maxAge: oneDay }));
 	app.use(express.static(path.resolve('public')));
+	
+	app.get('/view[^\.]+$', function(req, res){
+		console.log(req.url);
+		res.set('Content-Type', 'text/html').sendFile(path.resolve('public') + '/index.html');
+	});
+	
 	app.use(favicon('./public/favicon.ico'));
 	app.set('view engine', 'ejs');
 	app.set('views', './views');

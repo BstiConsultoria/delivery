@@ -1,25 +1,33 @@
 var app = angular.module('delivery', ['ngRoute', 'ngResource']);
 
 app.config(['$routeProvider', '$httpProvider', '$locationProvider', function($routeProvider, $httpProvider, $locationProvider) {
-	$locationProvider.html5Mode(true);
+
+	//$locationProvider.html5Mode(true);
+	
+	$locationProvider.html5Mode({
+		enabled: true,
+		requireBase: false,
+		rewriteLinks: true
+	});
+	
 	$httpProvider.interceptors.push('meuInterceptor');
 	$routeProvider
-		.when('/auth', {
-			templateUrl: 'partials/auth.html'
+		.when('/view/auth', {
+			templateUrl: '/partials/auth.html'
 		})
-		.when('/contatos', {
-			templateUrl: 'partials/contatos.html',
+		.when('/view/contatos', {
+			templateUrl: '/partials/contatos.html',
 			controller: 'ContatosCtrl'
 		})
-		.when('/contato/:contatoId', {
-			templateUrl: 'partials/contato.html',
+		.when('/view/contato/:contatoId', {
+			templateUrl: '/partials/contato.html',
 			controller: 'ContatoCtrl'
 		})
-		.when('/contato', {
-			templateUrl: 'partials/contato.html',
+		.when('/view/contato', {
+			templateUrl: '/partials/contato.html',
 			controller: 'ContatoCtrl'
 		})
 		.otherwise ({ 
-			redirectTo: '/' 
+			redirectTo: '/view' 
 		});
 }]);
