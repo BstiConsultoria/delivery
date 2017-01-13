@@ -2,8 +2,6 @@ var app = angular.module('delivery', ['ngRoute', 'ngResource']);
 
 app.config(['$routeProvider', '$httpProvider', '$locationProvider', function($routeProvider, $httpProvider, $locationProvider) {
 
-	//$locationProvider.html5Mode(true);
-	
 	$locationProvider.html5Mode({
 		enabled: true,
 		requireBase: false,
@@ -28,6 +26,6 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider', function($ro
 			controller: 'ContatoCtrl'
 		})
 		.otherwise ({ 
-			redirectTo: '/view' 
+			redirectTo: '/view/' 
 		});
 }]);

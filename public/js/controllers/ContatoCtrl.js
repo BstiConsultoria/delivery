@@ -1,7 +1,9 @@
 angular.module('delivery').controller('ContatoCtrl',
-	function($scope, $routeParams, ContatoService) {
-		// aqui continua no plural, é a rota no lado do servidor
-		//var Contato = $resource('/api/contatos/:id');
+	function($scope, $rootScope, $routeParams, $location, ContatoService) {
+
+		$rootScope.activetab = $location.path();
+		console.log("activetab: " + $rootScope.activetab);
+		
 		if($routeParams.contatoId) {
 			ContatoService.get({id: $routeParams.contatoId},
 				function(contato) {

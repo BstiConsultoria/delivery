@@ -14,6 +14,9 @@
     "express": "^4.14.0",
     "express-load": "^1.1.15",
     "express-session": "^1.14.2",
+    "http-proxy-agent": "^1.0.0",
+    "https-proxy-agent": "^1.0.0",
+    "httpx-proxy-agent-config": "github:bloublou2014/httpx-proxy-agent-config",
     "method-override": "^2.3.7",
     "moment-timezone": "^0.5.10",
     "mongodb": "^2.2.19",
@@ -21,6 +24,7 @@
     "mongoose-findorcreate": "^0.1.2",
     "passport": "^0.3.2",
     "passport-github": "^1.1.0",
+    "passport-github2": "^0.1.10",
     "serve-favicon": "^2.3.2",
     "tunnel": "0.0.4"
   }

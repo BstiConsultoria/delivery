@@ -1,10 +1,13 @@
 angular.module('delivery').controller('ContatosCtrl',
-	function($scope, ContatoService) {
+	function($scope, $rootScope, $location, ContatoService) {
 		$scope.contatos = [];
 		$scope.total = 0;
 		$scope.filtro = '';
 		$scope.mensagem = {texto: ''};
-
+		$rootScope.activetab = $location.path();
+		
+		console.log("activetab: " + $rootScope.activetab);
+		
 		//var contatosAPI = $resource('/api/contatos/:id');
 
 		$scope.incrementa = function() {
