@@ -18,8 +18,8 @@ module.exports = function(app) {
 	app.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/' }));
 
 	// GitHub routes
-	app.get('/auth/github', passport.authenticate('github'));
-	app.get('/auth/github/callback', passport.authenticate('github', { successRedirect: '/' }));
+	//app.get('/auth/github', passport.authenticate('github'));
+	//app.get('/auth/github/callback', passport.authenticate('github', { successRedirect: '/' }));
 
 };
 

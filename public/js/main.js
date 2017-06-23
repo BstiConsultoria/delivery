@@ -10,8 +10,14 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider', function($ro
 	
 	$httpProvider.interceptors.push('meuInterceptor');
 	$routeProvider
-		.when('/view/auth', {
-			templateUrl: '/partials/auth.html'
+		.when('/view/login', {
+			templateUrl: '/partials/login.html'
+		})
+		.when('/view/home', {
+			templateUrl: '/partials/home.html'
+		})
+		.when('/view/modulos', {
+			templateUrl: '/partials/modulos.html'
 		})
 		.when('/view/contatos', {
 			templateUrl: '/partials/contatos.html',

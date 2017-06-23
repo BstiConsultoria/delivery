@@ -3,7 +3,7 @@ angular.module('delivery').factory('meuInterceptor',
 		var interceptor = {
 			responseError: function(resposta) {
 				if (resposta.status == 401) {
-					$location.path('/view/auth');
+					$location.path('/view/login');
 				}
 				return $q.reject(resposta);
 			}

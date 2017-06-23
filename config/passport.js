@@ -5,8 +5,12 @@ var TwitterStrategy = require('passport-twitter').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;  
 var User = require('../models/user');  
 var configAuth = require('./auth');  
+var mongoose = require('mongoose');
 
 module.exports = function() {  
+
+  //var User = mongoose.model('User');
+  
   passport.serializeUser(function(user, done) {
     done(null, user.id);
   });

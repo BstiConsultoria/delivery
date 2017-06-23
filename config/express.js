@@ -37,7 +37,9 @@ module.exports = function () {
 	app.use(passport.initialize());
 	app.use(passport.session());
 
-	load('models').then('controllers').then('routes').into(app);
+	load('models', {verbose:true}).then('controllers', {verbose:true}).then('routes', {verbose:true}).into(app);
+	
+	console.log(app);
 	
 	return app;
 	
